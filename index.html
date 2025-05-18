@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rose Glow - Your skin, your essence, your nature</title>
+    <style>
+        :root {
+            --primary-brown: #a67c52;
+            --secondary-beige: #f5e1c9;
+            --accent-rose: #e8b4b8;
+            --dark-brown: #5e4536;
+            --light-beige: #faf0e6;
+            --text-color: #3a3a3a;
+            --white: #ffffff;
+        }
+        
+        @keyframes fade {
+            0% { opacity: 0; }
+            20% { opacity: 1; }
+            33.33% { opacity: 1; }
+            53.33% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-beige);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-brown);
+        }
+        
+        .logo span {
+            color: var(--accent-rose);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-brown);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-rose);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            padding-top: 70px;
+            overflow: hidden;
+        }
+        
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            animation: fade 15s infinite;
+            z-index: -1;
+        }
+        
+        .hero-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(94, 69, 54, 0.7);
+        }
+        
+        .hero-slide:nth-child(1) {
+            background-image: url('hero1.jpeg');
+            animation-delay: 0s;
+        }
+        
+        .hero-slide:nth-child(2) {
+            background-image: url('hero4.jpeg');
+            animation-delay: 5s;
+        }
+        
+        .hero-slide:nth-child(3) {
+            background-image: url('hero2.jpeg');
+            animation-delay: 10s;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-rose);
+            color: var(--white);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-brown);
+        }
+        
+        /* About Section */
+        .section {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--dark-brown);
+            font-size: 36px;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .about-text {
+            flex: 1;
+            text-align: justify;
+        }
+        
+        .about-text h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--primary-brown);
+        }
+        
+        .values {
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .value-item {
+            flex: 1;
+            min-width: 200px;
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .value-item h4 {
+            color: var(--accent-rose);
+            margin-bottom: 10px;
+        }
+        
+        /* Products Section */
+        .products {
+            background-color: var(--secondary-beige);
+        }
+        
+        .product-categories {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        
+        .category-btn {
+            background: transparent;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--dark-brown);
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .category-btn:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--accent-rose);
+            transition: all 0.3s;
+        }
+        
+        .category-btn:hover:after,
+        .category-btn.active:after {
+            width: 100%;
+            left: 0;
+        }
+        
+        .category-btn.active {
+            color: var(--accent-rose);
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-img {
+            height: 250px;
+            background-color: var(--light-beige);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-name {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark-brown);
+        }
+        
+        .product-description {
+            color: var(--text-color);
+            margin-bottom: 15px;
+            font-size: 14px;
+            text-align: justify;
+        }
+        
+        .product-price {
+            color: var(--accent-rose);
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        /* Mission Section */
+        .mission {
+            background-color: var(--white);
+        }
+        
+        .mission-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .mission-text {
+            flex: 1;
+        }
+        
+        .mission-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .mission-points {
+            margin-top: 30px;
+        }
+        
+        .mission-point {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        
+        .mission-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-rose);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: var(--white);
+            font-size: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-brown);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h4 {
+            color: var(--accent-rose);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col a:hover {
+            color: var(--accent-rose);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent-rose);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .about-content,
+            .mission-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .navbar {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 20px;
+            }
+            
+            .nav-links li {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">Rose <span>Glow</span></div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#mission">Our Mission</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-slide"></div>
+        <div class="hero-slide"></div>
+        <div class="hero-slide"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Your skin, your essence, your nature</h1>
+                <p>Eco-friendly makeup that enhances your natural beauty while respecting the environment and embracing inclusivity.</p>
+                <a href="#products" class="btn">Explore Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">About Rose Glow</h2>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="about1.jpeg" alt="About Rose Glow" width="100%">
+                </div>
+                <div class="about-text">
+                    <h3>Beauty that respects both you and the planet</h3>
+                    <p>Rose Glow is a conscious beauty brand committed to creating high-performance makeup products that enhance your natural beauty while being kind to your skin and the environment. We believe that makeup is a tool for empowerment and self-expression.</p>
+                    <p>Founded with a vision of becoming a global leader in eco-friendly makeup, we infuse skincare benefits into every product, ensuring luxury formulas with impressive results.</p>
+                    <div class="values">
+                        <div class="value-item">
+                            <h4>Quality</h4>
+                            <p>High-performance formulas that deliver exceptional results</p>
+                        </div>
+                        <div class="value-item">
+                            <h4>Inclusivity</h4>
+                            <p>Products designed for all skin tones and types</p>
+                        </div>
+                        <div class="value-item">
+                            <h4>Innovation</h4>
+                            <p>Constantly evolving to create better, sustainable solutions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section products" id="products">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            <div class="product-categories">
+                <button class="category-btn active">All</button>
+                <button class="category-btn">Eyeshadows</button>
+                <button class="category-btn">Bronzer</button>
+                <button class="category-btn">Tint</button>
+                <button class="category-btn">Concealer</button>
+                <button class="category-btn">Lipstick</button>
+            </div>
+            <div class="product-grid">
+                <!-- Eyeshadows -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="palete1.jpg" height="300" width="300"  alt="Natural Glow Eyeshadow Palette">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Natural Glow Eyeshadow Palette</h3>
+                        <p class="product-description">A versatile palette with 12 earth-toned shades infused with nourishing botanicals for all-day wear.</p>
+                        <div class="product-price">$32.00</div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="palete2.jpg" height="280" width="280" alt="Sunset Dreams Eyeshadow Quad">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Sunset Dreams Eyeshadow Quad</h3>
+                        <p class="product-description">Four complementary warm shades with antioxidant-rich ingredients for a radiant look.</p>
+                        <div class="product-price">$24.00</div>
+                    </div>
+                </div>
+                
+                <!-- Bronzer -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="bronzer1.jpg" height="280" width="280" alt="Sun-Kissed Bronzer">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Sun-Kissed Bronzer</h3>
+                        <p class="product-description">A silky smooth bronzer that blends effortlessly for a natural sunkissed glow.</p>
+                        <div class="product-price">$28.00</div>
+                    </div>
+                </div>
+                
+                <!-- Tint -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="tint1.jpg" height="280" width="280"  alt="Rosy Cheeks Multi-Tint">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Rosy Cheeks Multi-Tint</h3>
+                        <p class="product-description">A versatile tint for lips and cheeks made with natural pigments and hydrating ingredients.</p>
+                        <div class="product-price">$22.00</div>
+                    </div>
+                </div>
+                
+                <!-- Concealer -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="concealer1.jpg" height="280" width="280"  alt="Flawless Finish Concealer">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Flawless Finish Concealer</h3>
+                        <p class="product-description">A creamy concealer available in 24 shades, formulated with argan oil and vitamin E.</p>
+                        <div class="product-price">$20.00</div>
+                    </div>
+                </div>
+                
+                <!-- Lipstick -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="lipstick.png" height="280" width="280" alt="Velvet Matte Lipstick">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Velvet Matte Lipstick</h3>
+                        <p class="product-description">Long-lasting, moisturizing lipstick with rich pigmentation and a comfortable matte finish.</p>
+                        <div class="product-price">$18.00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="section mission" id="mission">
+        <div class="container">
+            <h2 class="section-title">Our Mission</h2>
+            <div class="mission-content">
+                <div class="mission-text">
+                    <p>At Rose Glow, we're committed to creating beauty products that not only enhance your natural features but also respect the planet we all share. Our mission goes beyond makeup – it's about empowering everyone to express themselves authentically while making conscious choices.</p>
+                    <div class="mission-points">
+                        <div class="mission-point">
+                            <div class="mission-icon">♥</div>
+                            <div>
+                                <h4>Cruelty-Free Promise</h4>
+                                <p>We never test on animals and are proudly cruelty-free. Every product we create respects animal welfare.</p>
+                            </div>
+                        </div>
+                        <div class="mission-point">
+                            <div class="mission-icon">♻️</div>
+                            <div>
+                                <h4>Eco-Friendly Packaging</h4>
+                                <p>Our packaging is designed to minimize environmental impact, using recycled materials and biodegradable options.</p>
+                            </div>
+                        </div>
+                        <div class="mission-point">
+                            <div class="mission-icon">🌿</div>
+                            <div>
+                                <h4>Clean Ingredients</h4>
+                                <p>We carefully select ingredients that are safe for your skin and the environment, avoiding harmful chemicals.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mission-img">
+                    <img src="mision1.jpeg" alt="Our Mission" width="100%">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Rose Glow</h4>
+                    <p>Your skin, your essence, your nature. Eco-friendly makeup that enhances your natural beauty.</p>
+                    <div class="social-links">
+                        <a href="#">📱</a>
+                        <a href="#">📷</a>
+                        <a href="#">📘</a>
+                        <a href="#">📌</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="#products">Eyeshadows</a></li>
+                        <li><a href="#products">Bronzer</a></li>
+                        <li><a href="#products">Tint</a></li>
+                        <li><a href="#products">Concealer</a></li>
+                        <li><a href="#products">Lipstick</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#mission">Our Mission</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Rose Glow. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Product category filtering
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const productCards = document.querySelectorAll('.product-card');
+        
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Filter products based on category
+                const category = button.textContent.toLowerCase();
+                
+                productCards.forEach(card => {
+                    if (category === 'all') {
+                        card.style.display = 'block';
+                    } else {
+                        const productName = card.querySelector('.product-name').textContent.toLowerCase();
+                        
+                        // Match products based on their names containing the category
+                        if (productName.includes(category.toLowerCase()) || 
+                            (category === 'eyeshadows' && productName.includes('eyeshadow')) ||
+                            (category === 'tint' && productName.includes('tint')) ||
+                            (category === 'bronzer' && productName.includes('bronzer')) ||
+                            (category === 'concealer' && productName.includes('concealer')) ||
+                            (category === 'lipstick' && productName.includes('lipstick'))) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
